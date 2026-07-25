@@ -1,10 +1,10 @@
-# 📈 Previsão Direcional e Backtesting da SUZB3 via SSA-SVR
+# 📈 Estratégia Quantitativa e Backtesting Causal (Walk-Forward) via SSA-SVR
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-SVR-orange.svg)](https://scikit-learn.org/)
 [![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-green.svg)](LICENSE)
 
-Pipeline quantitativa *end-to-end* para previsão da direção dos log-retornos diários da ação **SUZB3.SA** (Suzano S.A.). A arquitetura combina **Análise de Espectro Singular (SSA)** para decomposição de ruído espectral com **Support Vector Regression (SVR)** sob um esquema causal de **Validação Walk-Forward**.
+Pipeline quantitativo agnóstico e *end-to-end* para previsão da direção dos log-retornos diários no mercado acionário. A arquitetura combina **Análise de Espectro Singular (SSA)** para decomposição de ruído espectral com **Support Vector Regression (SVR)** sob um esquema causal de **Validação Walk-Forward**.
 
 ---
 
@@ -13,6 +13,7 @@ Pipeline quantitativa *end-to-end* para previsão da direção dos log-retornos 
 * **Alvo em Log-Retornos:** Evita a previsão direta de preços absolutos (séries não-estacionárias), eliminando R² inflado e vieses de tendência.
 * **Decomposição de Sinal Causal:** A decomposição matricial via SSA e o escalonamento (`StandardScaler`) são aplicados estritamente dentro das janelas históricas expandidas, eliminando qualquer risco de **Data Leakage**.
 * **Validação Walk-Forward:** Re-treinamento diário com janela móvel de 500 dias, simulando fielmente as condições de execução do mercado em tempo real.
+* **Agnóstico ao Ativo:** Arquitetura parametrizada para testar qualquer ativo de alta liquidez.
 
 ---
 
